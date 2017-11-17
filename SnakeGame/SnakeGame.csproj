@@ -60,9 +60,9 @@
     <Compile Include="Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SnakeGameController.cs" />
     <Compile Include="SnakeGameModel.cs" />
     <Compile Include="SnakeGameView.cs" />
-    <Compile Include="SnakeGameController.cs" />
     <Compile Include="Snake.cs">
       <SubType>Form</SubType>
     </Compile>

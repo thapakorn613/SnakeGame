@@ -32,6 +32,7 @@
             this.lblScoreText = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.chbDebug = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnStart
@@ -74,12 +75,25 @@
             this.chbDebug.TabIndex = 3;
             this.chbDebug.Text = "Debug";
             this.chbDebug.UseVisualStyleBackColor = true;
+            this.chbDebug.CheckedChanged += new System.EventHandler(this.chbDebug_CheckedChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(46, 158);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(55, 17);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "bigger";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.bigger_CheckedChanged);
             // 
             // Snake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.chbDebug);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.lblScoreText);
@@ -99,5 +113,6 @@
         private System.Windows.Forms.Label lblScoreText;
         private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.CheckBox chbDebug;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

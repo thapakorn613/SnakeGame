@@ -17,7 +17,7 @@ namespace SnakeGame
         protected SnakeGameController sgc = null;
 
         protected static Snake _instance = null;
-
+        private Boolean bigger = false;
 
 
         public static void Debug(string str)
@@ -56,9 +56,21 @@ namespace SnakeGame
             try
             {
                 Snake.Debug("create view");
-                sgv = new SnakeGameView(40, 40);
+                if (bigger)
+                {
+                    sgv = new SnakeGameView(80, 80);
+                    sgm = new SnakeGameModel(80, 80);
+                    sgm.resetSpeed();
+                }
+                else
+                {
+                    sgv = new SnakeGameView(40, 40);
+                    sgm = new SnakeGameModel(40, 40);
+                    sgm.resetSpeed();
+                }
+                
                 Snake.Debug("create model");
-                sgm = new SnakeGameModel(40, 40);
+                
                 Snake.Debug("create controller");
                 sgc = new SnakeGameController();
                 Snake.Debug("attach model");
@@ -116,6 +128,16 @@ namespace SnakeGame
                 sgv.Dispose();
                 sgv.Exit();
             }
+        }
+
+        private void chbDebug_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bigger_CheckedChanged(object sender, EventArgs e)
+        {
+            bigger = true;
         }
     }
 }

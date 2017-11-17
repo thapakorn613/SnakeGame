@@ -25,28 +25,36 @@ namespace SnakeGame
         {
             int direction = -1;
             Keys[] keys = ks.GetPressedKeys();
-           
+
             if (keys.Contains(Keys.Up))
             {
-                direction = SnakeGameModel.MOVE_UP;
+                direction = SnakeGameModel.MOVE_UP; timer.Enabled = true;
+
             }
-            else if(keys.Contains(Keys.Down))
+            else if (keys.Contains(Keys.Down))
             {
-                direction = SnakeGameModel.MOVE_DOWN;
+                direction = SnakeGameModel.MOVE_DOWN; timer.Enabled = true;
+
             }
-            else if(keys.Contains(Keys.Left))
+            else if (keys.Contains(Keys.Left))
             {
-                direction = SnakeGameModel.MOVE_LEFT;
+                direction = SnakeGameModel.MOVE_LEFT; timer.Enabled = true;
             }
-            else if(keys.Contains(Keys.Right))
+            else if (keys.Contains(Keys.Right))
             {
                 direction = SnakeGameModel.MOVE_RIGHT;
+                timer.Enabled = true;
+            }
+            else if (keys.Contains(Keys.Space))
+            {
+                //pause
+                timer.Enabled = false;
             }
             // Find all snakeboard model we know
             if (direction == -1) return;
             foreach (Model m in mList)
             {
-                if (m is SnakeGameModel)
+                if (m is SnakeGameModel && timer.Enabled)
                 {
                     // Tell the model to update
                     SnakeGameModel sbm = (SnakeGameModel)m;
@@ -59,7 +67,7 @@ namespace SnakeGame
 
         public void Start()
         {
-            timer.Enabled = true; 
+            timer.Enabled = true;
         }
 
         public void Stop()
